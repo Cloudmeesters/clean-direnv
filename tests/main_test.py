@@ -227,7 +227,7 @@ def test_main(mock_main, mock_parse_args):
 
 def test__main():
     # Mock _find_dotenv_files
-    mm_find_dotenv = MagicMock(return_value=[".env", "test.env", ".envrc"])
+    mm_find_dotenv = MagicMock(return_value=[".env", ".envrc", "test.env"])
     clean_dotenv._find_dotenv_files = mm_find_dotenv
 
     # Mock _clean_env
@@ -240,6 +240,6 @@ def test__main():
     # Detection should be called once
     mm_find_dotenv.assert_called_once_with("test_directory")
 
-    # The creation of new .env file should be called twice, last with "test.env"
-    assert mm_clean_env.call_count == 2
+    # The creation of new .env file should be called thrice, last with "test.env"
+    assert mm_clean_env.call_count == 3
     mm_clean_env.assert_called_with(path_to_env="test.env", values_to_keep=[])
