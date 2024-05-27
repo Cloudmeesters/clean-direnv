@@ -194,14 +194,14 @@ def test_find_dotenv_files(mock_scandir):
     # Mock os.scandir() for files
     mock_scandir.return_value = [
         DirEntry(filename)
-        for filename in ["test.py", "abba", "env", "test.env", ".env"]
+        for filename in ["test.py", "abba", "env", "test.env", ".env", ".envrc"]
     ]
-    assert list(clean_dotenv._find_dotenv_files(None)) == ["test.env", ".env"]
+    assert list(clean_dotenv._find_dotenv_files(None)) == ["test.env", ".env", ".envrc"]
 
     # Mock os.scandir() for directories
     mock_scandir.return_value = [
         DirEntry(filename, is_file=False)
-        for filename in ["test.py", "abba", "env", "test.env", ".env", "env"]
+        for filename in ["test.py", "abba", "env", "test.env", ".env", ".envrc", "env"]
     ]
     assert list(clean_dotenv._find_dotenv_files(None)) == []
 
@@ -227,7 +227,7 @@ def test_main(mock_main, mock_parse_args):
 
 def test__main():
     # Mock _find_dotenv_files
-    mm_find_dotenv = MagicMock(return_value=[".env", "test.env"])
+    mm_find_dotenv = MagicMock(return_value=[".env", "test.env", ".envrc"])
     clean_dotenv._find_dotenv_files = mm_find_dotenv
 
     # Mock _clean_env

@@ -39,7 +39,7 @@ def _clean_env(path_to_env: str, values_to_keep: List[str] = []):
 def _find_dotenv_files(path_to_root: str) -> Iterator[str]:
     # Finds and yields .env files in the path_to_root
     for entry in os.scandir(path_to_root):
-        if entry.name.endswith(".env") and entry.is_file():
+        if (entry.name.endswith(".env") or entry.name.endswith(".envrc")) and entry.is_file():
             # Create a cleaned .env.example file for the found .env file
             yield entry.path
 
