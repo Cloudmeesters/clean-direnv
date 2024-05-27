@@ -1,5 +1,4 @@
 [![build status](https://github.com/Cloudmeesters/clean-direnv/actions/workflows/main.yml/badge.svg)](https://github.com/Cloudmeesters/clean-direnv/actions/workflows/main.yml)
-[![PyPI version](https://badge.fury.io/py/clean-dotenv.svg)](https://badge.fury.io/py/clean-dotenv)
 
 clean-dotenv (and direnv)
 ======================
