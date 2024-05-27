@@ -1,4 +1,4 @@
-[![build status](https://github.com/hija/clean-dotenv/actions/workflows/main.yml/badge.svg)](https://github.com/hija/clean-dotenv/actions/workflows/main.yml)
+[![build status](https://github.com/joooostb/clean-direnv/actions/workflows/main.yml/badge.svg)](https://github.com/joooostb/clean-direnv/actions/workflows/main.yml)
 [![PyPI version](https://badge.fury.io/py/clean-dotenv.svg)](https://badge.fury.io/py/clean-dotenv)
 
 clean-dotenv
@@ -49,22 +49,22 @@ See [pre-commit](https://github.com/pre-commit/pre-commit) for instructions
 Sample `.pre-commit-config.yaml`
 
 ```yaml
--   repo: https://github.com/hija/clean-dotenv
+-   repo: https://github.com/joooostb/clean-direnv
     rev: v0.0.7
     hooks:
     -   id: clean-dotenv
 ```
 
 ## What does it do?
-The tool looks for `.env` files in all directories and creates a new, corresponding filename `.env.example` which is save to commit, since it contains all the keys from your `.env` file, but without its values.
+The tool looks for `.env` and `.envrc` files in all directories and creates a new, corresponding filename `.env.example` which is save to commit, since it contains all the keys from your `.env`/`.encrc` file, but without its values.
 
-As a result, you always have an up-to-date `.env.example` file. This shall help to reduce forgetting updating the `.env.example` files!
+As a result, you always have an up-to-date `.env.example` or `.envrc.example` file. This shall help to reduce forgetting updating the `.example` files!
 
 ## Technical Background
-Since a `.env` file is probably in the `.gitignore` file, we cannot rely on pre-commits [`files`-filter](https://pre-commit.com/#hooks-files). Instead, we tell pre-commit to run always. We then check for each subdirectory if an `.env` file exists. If it exists, we automatically create an `.env.example` file.
+Since a `.env` file is probably in the `.gitignore` file, we cannot rely on pre-commits [`files`-filter](https://pre-commit.com/#hooks-files). Instead, we tell pre-commit to run always. We then check for each subdirectory if an `.env` or `.envrc` file exists. If it exists, we automatically create an `.example` file.
 
 ## Alternatives
-The biggest alternative is to not use `.env` files at all[^2]. If you want to keep using `.env` files without using clean-dotenv you can use language specific tools, such as [dotenv-safe](https://github.com/rolodato/dotenv-safe) for node.
+The biggest alternative is to not use environment files at all[^2]. If you want to keep using `.env` files without using clean-dotenv you can use language specific tools, such as [dotenv-safe](https://github.com/rolodato/dotenv-safe) for node.
 
 [^2]: https://dev.to/gregorygaines/stop-using-env-files-now-kp0
 
