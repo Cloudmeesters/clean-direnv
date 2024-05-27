@@ -1,4 +1,4 @@
-[![build status](https://github.com/joooostb/clean-direnv/actions/workflows/main.yml/badge.svg)](https://github.com/joooostb/clean-direnv/actions/workflows/main.yml)
+[![build status](https://github.com/Cloudmeesters/clean-direnv/actions/workflows/main.yml/badge.svg)](https://github.com/Cloudmeesters/clean-direnv/actions/workflows/main.yml)
 [![PyPI version](https://badge.fury.io/py/clean-dotenv.svg)](https://badge.fury.io/py/clean-dotenv)
 
 clean-dotenv (and direnv)
@@ -46,7 +46,7 @@ Sample `.pre-commit-config.yaml`
 
 ```yaml
 ...
--   repo: https://github.com/joooostb/clean-direnv
+-   repo: https://github.com/Cloudmeesters/clean-direnv
     rev: v0.0.7
     hooks:
     -   id: clean-dotenv
